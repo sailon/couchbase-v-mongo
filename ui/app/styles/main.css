@@ -1,0 +1,167 @@
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+body {
+  padding: 0;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Custom page header */
+.header {
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 10px;
+}
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 50px;
+  padding-bottom: 19px;
+}
+
+/* Custom page footer */
+.footer {
+  margin-top: 50px;
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+  position: relative;
+}
+
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 40px 0;
+}
+.marketing p + h4 {
+  margin-top: 28px;
+}
+
+.left-side,
+.right-side {
+  min-height: 100%;
+  display: block;
+}
+
+.left-side {
+  position: absolute;
+  width: 200px;
+}
+
+.right-side {
+  margin-left: 200px;
+  overflow: hidden;
+}
+
+/********************************************************************************/
+/* Custom Styles */
+/********************************************************************************/
+
+.navbar {
+  height: 59px;
+}
+
+.nav {
+  height: 60px;
+}
+
+.nav li a {
+  padding-top: 19px;
+  padding-bottom: 19px;
+}
+
+.logo {
+  height: 30px;
+  margin-right: 10px;
+}
+
+.cvm-posts img {
+  max-width: 350px;
+  height: auto;
+  float: left;
+  margin: -5px 20px 10px 0;
+  border-radius: 5px;
+  border: 1px solid #F1F1F1;
+}
+
+.cvm-post {
+  margin: 20px 5px 20px 5px;
+  border-top: 2px solid #D1D1D1;
+}
+
+.cvm-post a {
+  padding: 5px;
+}
+
+.cvm-post a img {
+  margin: 10px 5px 0 0;
+  border: 0px;
+}
+
+.cvm-tags {
+  padding-bottom: 10px;
+}
+
+.cvm-tag {
+  padding: 6px;
+  margin: 0 5px 10px 0;
+  font-size: 12px;
+  font-weight: 400;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+.cvm-tag:hover {
+  padding: 6px;
+  margin: 0 5px 10px 0;
+  font-size: 12px;
+  font-weight: 400;
+  text-transform: capitalize;
+  cursor: pointer;
+  background-color: #337ab7;
+}
+
+.cvm-author {
+  font-weight: 500;
+  padding: 0 10px 5px 0px;
+  font-size: 18px;
+  color: #454545;
+}
+
+.cvm-date {
+  font-style: italic;
+  color: #595959; 
+}
+
+.cvm-facet {
+  list-style: none;
+  margin-left: -35px;
+  cursor: pointer;
+  line-height: 12px;
+}
+
+.cvm-facet .cvm-selected {
+  padding: 3px;
+  border-radius: 3px;
+  color: white;
+  text-transform: capitalize;
+  background-color: #337ab7;
+}
+
+.cvm-justify-text {
+  text-align: justify;
+}
