@@ -27,3 +27,8 @@ var newPosts = posts.map(function (post) {
 
 var configJSON = JSON.stringify(_.uniq(newPosts, 'title'));
 fs.writeFileSync('../data/newPosts.json', configJSON);
+
+newPosts.forEach(function (post, k) {
+	var postJSON = JSON.stringify(post);
+	fs.writeFileSync('../data/couchbase/post' + k + '.json', postJSON);
+});

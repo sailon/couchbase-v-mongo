@@ -29,7 +29,6 @@ Vagrant.configure(2) do |config|
 
     vmconfig.vm.hostname = "mongodb.vagrant"
     vmconfig.vm.network :private_network, ip: "192.168.56.42"
-    vmconfig.vm.network "forwarded_port", guest: 80, host: 80
      
     vmconfig.vm.provision "chef_solo" do |chef|
       chef.add_recipe "mongodb-custom"
@@ -43,7 +42,6 @@ Vagrant.configure(2) do |config|
 
     vmconfig.vm.hostname = "couchbase.vagrant"
     vmconfig.vm.network :private_network, ip: "192.168.56.43"
-    vmconfig.vm.network "forwarded_port", guest: 80, host: 80
      
     vmconfig.vm.provision "chef_solo" do |chef|
       chef.add_recipe "couchbase-custom"
