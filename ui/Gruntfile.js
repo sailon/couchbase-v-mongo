@@ -402,6 +402,60 @@ module.exports = function (grunt) {
       }
     },
 
+    replace: {
+      local: {
+        options: {
+          patterns: [
+            {
+              json: grunt.file.readJSON('./config/environments/local.json')
+            }
+          ]
+        },
+        files: [
+          {
+            expand: true,
+            flatten: true,
+            src: ['./config/config.js'],
+            dest: '<%= yeoman.app %>/scripts/services/'
+          }
+        ]
+      },
+      mongo: {
+        options: {
+          patterns: [
+            {
+              json: grunt.file.readJSON('./config/environments/mongo.json')
+            }
+          ]
+        },
+        files: [
+          {
+            expand: true,
+            flatten: true,
+            src: ['./config/config.js'],
+            dest: '<%= yeoman.app %>/scripts/services/'
+          }
+        ]
+      },
+      couchbase: {
+        options: {
+          patterns: [
+            {
+              json: grunt.file.readJSON('./config/environments/couchbase.json')
+            }
+          ]
+        },
+        files: [
+          {
+            expand: true,
+            flatten: true,
+            src: ['./config/config.js'],
+            dest: '<%= yeoman.app %>/scripts/services/'
+          }
+        ]
+      }
+    },
+
     // Run some tasks in parallel to speed up the build process
     concurrent: {
       server: [
@@ -426,6 +480,37 @@ module.exports = function (grunt) {
     }
   });
 
+  grunt.registerTask('serve-mongo', 'Compile then start a connect web server', function (target) {
+    if (target === 'dist') {
+      return grunt.task.run(['build', 'connect:dist:keepalive']);
+    }
+
+    grunt.task.run([
+      'clean:server',
+      'replace:mongo',
+      'wiredep',
+      'concurrent:server',
+      'postcss:server',
+      'connect:livereload',
+      'watch'
+    ]);
+  });
+
+  grunt.registerTask('serve-couchbase', 'Compile then start a connect web server', function (target) {
+    if (target === 'dist') {
+      return grunt.task.run(['build', 'connect:dist:keepalive']);
+    }
+
+    grunt.task.run([
+      'clean:server',
+      'replace:couchbase',
+      'wiredep',
+      'concurrent:server',
+      'postcss:server',
+      'connect:livereload',
+      'watch'
+    ]);
+  });
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
@@ -472,6 +557,24 @@ module.exports = function (grunt) {
     'filerev',
     'usemin',
     'htmlmin'
+  ]);
+
+  grunt.registerTask('build-local', [ // See http://newtriks.com/2013/11/29/environment-specific-configuration-in-angularjs-using-grunt/
+    'replace:local',
+    'build',
+    'replace:local' // Set config back to local when build is complete
+  ]);
+
+  grunt.registerTask('build-mongo', [ // See http://newtriks.com/2013/11/29/environment-specific-configuration-in-angularjs-using-grunt/
+    'replace:mongo',
+    'build',
+    'replace:local' // Set config back to local when build is complete
+  ]);
+
+  grunt.registerTask('build-couchbase', [ // See http://newtriks.com/2013/11/29/environment-specific-configuration-in-angularjs-using-grunt/
+    'replace:couchbase',
+    'build',
+    'replace:local' // Set config back to local when build is complete
   ]);
 
   grunt.registerTask('default', [

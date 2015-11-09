@@ -10,6 +10,7 @@
  */
 angular
   .module('uiApp', [
+    'services.config', // Environment Based Configuration
     'ngAnimate',
     'ngCookies',
     'ngResource',
@@ -59,6 +60,7 @@ angular
         redirectTo: '/'
       });
   })
-  .run(function (Restangular) {
-    Restangular.setBaseUrl('http://localhost:3000/api');
+  .run(function (Restangular, configuration) {
+    console.dir(configuration.apiUrl);
+    Restangular.setBaseUrl(configuration.apiUrl);
   });
