@@ -4,3 +4,4 @@ public/components
 .vagrant
 Berksfile.lock
 *.log
+*.deb

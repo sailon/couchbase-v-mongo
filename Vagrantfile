@@ -38,13 +38,15 @@ Vagrant.configure(2) do |config|
 
   config.vm.define "couchbase" do |vmconfig|
     vmconfig.vm.box = "ubuntu/trusty64"
-    vmconfig.vm.provider "virtualbox"
+    vmconfig.vm.provider "virtualbox" do |v|
+      v.memory = 4096
+    end
 
     vmconfig.vm.hostname = "couchbase.vagrant"
     vmconfig.vm.network :private_network, ip: "192.168.56.43"
      
-    vmconfig.vm.provision "chef_solo" do |chef|
-      chef.add_recipe "couchbase-custom"
+    vmconfig.vm.provision "ansible" do |ansible|
+      ansible.playbook = "couchbase.yml"
     end
   end
 end

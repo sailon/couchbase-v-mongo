@@ -14,7 +14,28 @@ The middle tier, or data access layer, is written in Node.js with Express for th
 The webapp is built with Angular, and is identical between the two environments. Gotta love REST APIs.
 
 ## Dependencies
-TBA
+1. Install Virtualbox: https://www.virtualbox.org/wiki/Downloads
+
+2. Install Vagrant: http://www.vagrantup.com/downloads.html
+
+3. Install necessary Vagrant plugins:
+
+```sh
+vagrant plugin install vagrant-hostmanager
+vagrant plugin install vagrant-cachier
+vagrant plugin install vagrant-berkshelf
+```
+
+4. Install Ansible
+
+```sh
+brew install ansible
+```
+5. Install Node.js Playbook
+
+```sh
+ansible-galaxy install nodesource.node
+```
 
 ## Setup
 TBA
