@@ -6,7 +6,7 @@ An evaluation of Couchbase and MongoDB from a development perspective.
 Each box is self contained, meaning it has its own copy of the data, REST server, and UI.
   1. 'mongodb'
   2. 'couchbase'
-  
+
 ### Node.js
 The middle tier, or data access layer, is written in Node.js with Express for the REST API server.
 
@@ -21,20 +21,22 @@ The webapp is built with Angular, and is identical between the two environments.
 3. Install necessary Vagrant plugins:
 
 ```sh
-vagrant plugin install vagrant-hostmanager
-vagrant plugin install vagrant-cachier
-vagrant plugin install vagrant-berkshelf
+$ vagrant plugin install vagrant-hostmanager
+$ vagrant plugin install vagrant-cachier
+$ vagrant plugin install vagrant-berkshelf
 ```
 
-4. Install Ansible
+4. Install Chef
+
+5. Install Ansible
 
 ```sh
-brew install ansible
+$ brew install ansible
 ```
-5. Install Node.js Playbook
+6. Install Node.js Playbook
 
 ```sh
-ansible-galaxy install nodesource.node
+$ ansible-galaxy install nodesource.node
 ```
 
 ## Setup

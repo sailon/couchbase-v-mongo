@@ -2,5 +2,5 @@
 
 angular.module('services.config', [])
   .constant('configuration', {
-    apiUrl: 'http://mongodb.vagrant/api'
+    apiUrl: 'http://couchbase.vagrant:3000/api'
   });
