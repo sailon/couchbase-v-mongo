@@ -26,7 +26,7 @@ $ vagrant plugin install vagrant-cachier
 $ vagrant plugin install vagrant-berkshelf
 ```
 
-4. Install Chef
+4. Install ChefDK https://downloads.chef.io/chef-dk/
 
 5. Install Ansible
 
@@ -40,4 +40,7 @@ $ ansible-galaxy install nodesource.node
 ```
 
 ## Setup
-TBA
+Run ```vagrant up``` from the root directory
+
+Navigate to couchbase.vagrant:3000 to view the Couchbase app
+Navigate to mongodb.vagrant:3000 to view the MongoDB app
