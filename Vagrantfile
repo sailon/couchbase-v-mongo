@@ -31,8 +31,8 @@ Vagrant.configure(2) do |config|
     vmconfig.vm.network :private_network, ip: "192.168.56.42"
      
     vmconfig.vm.provision "chef_solo" do |chef|
-      chef.add_recipe "mongodb-custom"
       chef.add_recipe "nodejs"
+      chef.add_recipe "mongodb-custom"
     end
   end
 
