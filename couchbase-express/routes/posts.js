@@ -7,6 +7,11 @@ var bucket = cluster.openBucket('cvm');
 // Setup Query
 var N1qlQuery = couchbase.N1qlQuery;
 
+/**
+ * Loops through the tags passed in through the REST parameter and filters the result set.
+ * @param {object | string} tagParam
+ * @returns {string}
+ */
 function whereClause (tagParam) {
 	var whereClause = tagParam.split(',').map(function (tag, k) {
 			return (k > 0) ? ' AND "' + tag + '" IN cvm.categories' : ' WHERE "' + tag + '" IN cvm.categories';
@@ -35,7 +40,6 @@ router.get('/', function (req, res) {
 	var pagination = (' GROUP BY title ORDER BY date DESC LIMIT ' + options.perPage + ' OFFSET ' + (options.page * options.perPage - options.perPage));
 	str += pagination;
 
-	console.log('Query: ' + str);
 	var query = N1qlQuery.fromString(str);
 
 	bucket.query(query,[],function(err,posts){
@@ -67,7 +71,6 @@ router.get('/facets', function (req, res) {
 	var pagination = ' LIMIT ' + options.perPage;
 	str += aggregation + pagination;
 
-	console.log('Query: ' + str);
 	var query = N1qlQuery.fromString(str);
 
 	bucket.query(query,[],function(err,posts){
