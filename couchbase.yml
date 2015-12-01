@@ -52,3 +52,18 @@
     shell: /opt/couchbase/bin/cbdocloader -u couchbase -p couchbase -n 127.0.0.1:8091 -b cvm /vagrant/data/couchbase
     when: couchbase_config is defined
     ignore_errors: True
+
+  - name: Install forever
+    npm: name=forever global=yes state=latest
+
+  -name: Install npm packages
+    npm: path=/vagrant/couchbase-express
+
+  - name: Check list of Node.js apps running.
+    command: forever list
+    register: forever_list
+    changed_when: false
+
+  - name: Start app
+    command: forever start /vagrant/couchbase-express/bin/www
+    when: forever_list.stdout.find('/vagrant/couchbase-express/bin/www') == -1
