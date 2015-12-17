@@ -56,7 +56,7 @@
   - name: Install forever
     npm: name=forever global=yes state=latest
 
-  -name: Install npm packages
+  - name: Install npm packages
     npm: path=/vagrant/couchbase-express
 
   - name: Check list of Node.js apps running.
